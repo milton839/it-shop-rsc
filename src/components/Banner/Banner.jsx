@@ -5,7 +5,7 @@ import bannerImage from "../../images/hero.png";
 const Container = styled.div`
   width: 100%;
   height: 90%;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.colors.bgDefault};
   display: flex;
 `;
 const Left = styled.div`
@@ -19,11 +19,11 @@ const Left = styled.div`
 const Title = styled.div`
   font-size: 40px;
   font-weight: bold;
-  color: darkblue;
+  color: ${(props) => props.theme.colors.primary};
 `;
 const Description = styled.p`
   font-size: 20px;
-  color: gray;
+  color: ${(props) => props.theme.colors.textDark};
   width: 70%;
 `;
 
@@ -33,20 +33,24 @@ const ButtonsContainer = styled.div`
 
 const Button = styled.button`
   font-weight: bold;
-  background-color: darkblue;
-  border: 2px solid white;
-  color: white;
+  background-color: ${(props) => props.theme.colors.primary};
+  border: 2px solid ${(props) => props.theme.colors.bgDefault};
+  color: ${(props) => props.theme.colors.bgDefault};
   border-radius: 10px;
   cursor: pointer;
   padding: 10px 20px;
   margin-right: 30px;
-  background: linear-gradient(to right, aliceblue 50%, darkblue 50%);
+  background: linear-gradient(
+    to right,
+    ${(props) => props.theme.colors.bgLight} 50%,
+    ${(props) => props.theme.colors.primary} 50%
+  );
   background-size: 200% 100%;
   background-position: right bottom;
   transition: all 0.5s ease-out;
   &:hover {
     background-color: white;
-    color: darkblue;
+    color: ${(props) => props.theme.colors.primary};
     border: 2px solid darkblue;
     background-position: left bottom;
   }
